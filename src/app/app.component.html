@@ -14,7 +14,11 @@
             <h1 class="title">{{title}}</h1>
           </div>
           <div class="content">
-            </div>
+            <p>{{ content }}</p>
+            <button
+              class="btn btn-default"
+              (click)="changeContent('Mein neuer Text!')">change Content</button>
+          </div>
         </div>
 
       </div>
