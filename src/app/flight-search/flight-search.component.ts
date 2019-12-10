@@ -38,6 +38,9 @@ export class FlightSearchComponent implements OnInit {
   }
 
   select(flight: Flight): void {
-    this.selectedFlight = flight;
+    this.selectedFlight = 
+      this.selectedFlight === flight ?
+      null :
+      flight;
   }
 }
