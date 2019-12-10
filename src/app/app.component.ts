@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent  {
   title = 'Hello Angular!';
   content = 'Das ist mein neuer Textblock!';
+  showComponent = true;
 
   changeContent(value: string): void {
     this.content = value;

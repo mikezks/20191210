@@ -21,7 +21,11 @@
           </div>
         </div> -->
 
-        <app-flight-search></app-flight-search>
+        <button
+          class="btn btn-default toggle"
+          (click)="showComponent = !showComponent">
+          toggle component</button>
+        <app-flight-search *ngIf="showComponent"></app-flight-search>
 
       </div>
   </div>
