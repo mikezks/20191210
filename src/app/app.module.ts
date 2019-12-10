@@ -10,6 +10,7 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { AbstractFlightService } from './flight-search/abstract-flight.service';
 import { DefaultFlightService } from './flight-search/default-flight.service';
 import { StaticDataFlightService } from './flight-search/static-data-flight.service';
+import { CityPipe } from './shared/pipes/city.pipe';
 
 @NgModule({
    imports: [
@@ -21,11 +22,12 @@ import { StaticDataFlightService } from './flight-search/static-data-flight.serv
       AppComponent,
       SidebarComponent,
       NavbarComponent,
-      FlightSearchComponent
+      FlightSearchComponent,
+      CityPipe
    ],
    providers: [
-      { provide: AbstractFlightService, useClass: DefaultFlightService }
-      /* { provide: AbstractFlightService, useClass: StaticDataFlightService } */
+      /* { provide: AbstractFlightService, useClass: DefaultFlightService } */
+      { provide: AbstractFlightService, useClass: StaticDataFlightService } 
    ],
    bootstrap: [
       AppComponent

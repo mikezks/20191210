@@ -16,8 +16,8 @@ export class StaticDataFlightService implements AbstractFlightService {
     return of([
       {
         id: 9999,
-        from: 'Dummy City',
-        to: 'Do not know where to go...',
+        from: 'Graz',
+        to: 'Hamburg',
         date: (new Date()).toISOString(),
         delayed: false
       }
