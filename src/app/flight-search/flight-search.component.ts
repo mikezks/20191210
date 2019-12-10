@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../entities/flight';
-import { FlightService } from './flight.service';
+import { AbstractFlightService } from './abstract-flight.service';
 
 @Component({
   selector: 'app-flight-search',
@@ -17,7 +17,7 @@ export class FlightSearchComponent implements OnInit {
     return this.flightService.flights;
   }
 
-  constructor(private flightService: FlightService) { }
+  constructor(private flightService: AbstractFlightService) { }
 
   ngOnInit() {
 

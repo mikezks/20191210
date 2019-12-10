@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { AbstractFlightService } from './flight-search/abstract-flight.service';
+import { DefaultFlightService } from './flight-search/default-flight.service';
+import { StaticDataFlightService } from './flight-search/static-data-flight.service';
 
 @NgModule({
    imports: [
@@ -20,7 +23,10 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
       NavbarComponent,
       FlightSearchComponent
    ],
-   providers: [],
+   providers: [
+      /* { provide: AbstractFlightService, useClass: DefaultFlightService } */
+      { provide: AbstractFlightService, useClass: StaticDataFlightService }
+   ],
    bootstrap: [
       AppComponent
    ]
