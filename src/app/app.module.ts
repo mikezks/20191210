@@ -24,8 +24,8 @@ import { StaticDataFlightService } from './flight-search/static-data-flight.serv
       FlightSearchComponent
    ],
    providers: [
-      /* { provide: AbstractFlightService, useClass: DefaultFlightService } */
-      { provide: AbstractFlightService, useClass: StaticDataFlightService }
+      { provide: AbstractFlightService, useClass: DefaultFlightService }
+      /* { provide: AbstractFlightService, useClass: StaticDataFlightService } */
    ],
    bootstrap: [
       AppComponent
