@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../entities/flight';
 import { AbstractFlightService } from './abstract-flight.service';
+import { Observable, of, timer, pipe } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-flight-search',
@@ -13,6 +15,16 @@ export class FlightSearchComponent implements OnInit {
   selectedFlight: Flight;
   //flights: Flight[] = [];
 
+  passengers = [{
+    id: 2,
+    firstname: 'Peter',
+    lastname: 'Huber'
+  }];
+
+  passengers$: Observable<any>;
+
+  timer$: Observable<number>;
+
   get flights() {
     return this.flightService.flights;
   }
@@ -20,7 +32,11 @@ export class FlightSearchComponent implements OnInit {
   constructor(private flightService: AbstractFlightService) { }
 
   ngOnInit() {
-
+    /* this.passengers$ = of(this.passengers);
+    this.timer$ = timer(0, 1000)
+      .pipe(
+        tap(console.log)
+      ); */
   }
 
   search(): void {
