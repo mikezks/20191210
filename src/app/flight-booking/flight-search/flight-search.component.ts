@@ -15,7 +15,7 @@ export class FlightSearchComponent implements OnInit {
   to = 'Hamburg';
   selectedFlight: Flight;
   //flights: Flight[] = [];
-  showTimer: boolean;
+  /* showTimer: boolean;
 
   passengers = [{
     id: 2,
@@ -26,7 +26,7 @@ export class FlightSearchComponent implements OnInit {
   passengers$: Observable<any>;
 
   timer$: Observable<number>;
-
+ */
   get flights() {
     return this.flightService.flights;
   }
@@ -34,13 +34,13 @@ export class FlightSearchComponent implements OnInit {
   constructor(private flightService: AbstractFlightService) { }
 
   ngOnInit() {
-    this.passengers$ = of(this.passengers);
+    /* this.passengers$ = of(this.passengers);
     this.timer$ = timer(0, 5000)
       .pipe(
         tap(console.log),
         //share()
         shareReplay(1)
-      );
+      ); */
   }
 
   search(): void {
