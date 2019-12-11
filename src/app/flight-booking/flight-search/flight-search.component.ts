@@ -14,6 +14,12 @@ export class FlightSearchComponent implements OnInit {
   from = 'Graz';
   to = 'Hamburg';
   selectedFlight: Flight;
+
+  basket: object = {
+    "2": true,
+    "5": true
+  };
+
   //flights: Flight[] = [];
   /* showTimer: boolean;
 
