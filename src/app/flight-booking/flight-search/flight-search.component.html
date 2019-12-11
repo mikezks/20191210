@@ -69,9 +69,15 @@
     </div>
 </div>
 
-<!-- <div class="card">
+<div class="card">
     <div class="content">
         <pre>{{ (passengers$ | async)[0].firstname }}</pre>
-        <pre>{{ timer$ | async }}</pre>
+        <pre *ngIf="{
+            timer: timer$ | async
+        } as data">{{ data.timer }}</pre>
+        <p *ngIf="showTimer">
+            Timer: {{ timer$ | async }}
+        </p>
+        <button (click)="showTimer = !showTimer">toggle Timer</button>
     </div>
-</div> -->
+</div>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../../entities/flight';
 import { AbstractFlightService } from '../services/abstract-flight.service';
-import { Observable } from 'rxjs';
+import { Observable, timer, of } from 'rxjs';
+import { tap, share, delay, startWith, map, debounceTime, observeOn, shareReplay } from 'rxjs/operators';
+import { AsapScheduler } from 'rxjs/internal/scheduler/AsapScheduler';
 
 @Component({
   selector: 'app-flight-search',
@@ -13,6 +15,7 @@ export class FlightSearchComponent implements OnInit {
   to = 'Hamburg';
   selectedFlight: Flight;
   //flights: Flight[] = [];
+  showTimer: boolean;
 
   passengers = [{
     id: 2,
@@ -31,11 +34,13 @@ export class FlightSearchComponent implements OnInit {
   constructor(private flightService: AbstractFlightService) { }
 
   ngOnInit() {
-    /* this.passengers$ = of(this.passengers);
-    this.timer$ = timer(0, 1000)
+    this.passengers$ = of(this.passengers);
+    this.timer$ = timer(0, 5000)
       .pipe(
-        tap(console.log)
-      ); */
+        tap(console.log),
+        //share()
+        shareReplay(1)
+      );
   }
 
   search(): void {
