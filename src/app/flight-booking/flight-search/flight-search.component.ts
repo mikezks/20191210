@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../../entities/flight';
 import { AbstractFlightService } from '../services/abstract-flight.service';
-import { Observable, timer, of } from 'rxjs';
+import { Observable, timer, of, bindCallback } from 'rxjs';
 import { tap, share, delay, startWith, map, debounceTime, observeOn, shareReplay } from 'rxjs/operators';
 import { AsapScheduler } from 'rxjs/internal/scheduler/AsapScheduler';
+
+function log(value) {
+  console.log(this.from, this);
+}
 
 @Component({
   selector: 'app-flight-search',
@@ -47,14 +51,35 @@ export class FlightSearchComponent implements OnInit {
         //share()
         shareReplay(1)
       ); */
+
   }
 
   search(): void {
     this.flightService
       .find(this.from, this.to)
+      .pipe(tap())
       .subscribe(
         //flights => this.flights = flights,
-        //err => console.error('Error on loading flights', err)        
+        //err => console.error('Error on loading flights', err)
+
+        // Function mit "falschem" this Context.
+        /* function(value) {
+          console.log(this.from, this);
+        } */
+
+        // Lambda Expression mit erwartbarem this Context der Component.
+        /* (value) => {
+          console.log(this.from, this);
+        } */
+
+        // Aktives setzen des this Context über die bind-Methode.
+        // Siehe auch "call" und "apply" um die Function aufzurufen.
+        /* (function(value) {
+          console.log(this.from, this);
+        }).bind(this) */
+
+        // Verwenden einer bestehenden Function mit "bind".
+        /* log.bind(this) */
       );
   }
 
