@@ -12,7 +12,7 @@ import { ROUTES } from './app.routes';
    imports: [
       BrowserModule,
       CoreModule,
-      FlightBookingModule,
+      //FlightBookingModule,
       SharedModule,
       RouterModule.forRoot(ROUTES)
    ],
