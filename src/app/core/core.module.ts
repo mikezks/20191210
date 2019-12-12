@@ -5,15 +5,19 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AbstractFlightService } from '../flight-booking/services/abstract-flight.service';
 import { DefaultFlightService } from '../flight-booking/services/default-flight.service';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [
      { provide: AbstractFlightService, useClass: DefaultFlightService }
