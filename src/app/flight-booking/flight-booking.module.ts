@@ -4,6 +4,7 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { SharedModule } from '../shared/shared.module';
 import { FlightCardComponent } from './flight-card/flight-card.component';
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
+import { FlightBookingRoutingModule } from './flight-booking-routing.module';
 
 
 
@@ -14,7 +15,9 @@ import { FlightEditComponent } from './flight-edit/flight-edit.component';
     FlightEditComponent
   ],
   imports: [
-    CommonModule, SharedModule
+    CommonModule,
+    SharedModule,
+    FlightBookingRoutingModule
   ],
   exports: [
     FlightSearchComponent,

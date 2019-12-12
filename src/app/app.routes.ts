@@ -11,15 +11,10 @@ export const ROUTES: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
-    },
-    {
-        path: 'flight-search',
-        component: FlightSearchComponent
-    },
-    {
-        path: 'flight-edit',
-        component: FlightEditComponent
+        component: HomeComponent,
+        /* data: {
+            label: 'Home'
+        } */
     },
     {
         path: '**',
