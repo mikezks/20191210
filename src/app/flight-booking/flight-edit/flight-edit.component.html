@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="header"></div>
+    <div class="content">
+        <form [formGroup]="editForm">
+            <div class="form-group">
+                <label>ID:</label>
+                <input formControlName="id" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label>From:</label>
+                <input formControlName="from" class="form-control">
+            </div>
+            <pre *ngIf="editForm.controls['from'].hasError('required')">Das ist ein Pflichtfeld.</pre>
+            <pre *ngIf="editForm.controls['from'].hasError('minlength')">Bitte mehr Zeichen eingeben ({{
+                    editForm.controls['from'].errors.minlength.actualLength
+            }}/3)</pre>
+            <pre *ngIf="editForm.controls['from'].hasError('city')">Städtename ist nicht erlaubt.
+{{ editForm.controls['from'].errors.city | json }}</pre>
+
+            <div class="form-group">
+                <label>To:</label>
+                <input formControlName="to" class="form-control">
+            </div>
+            <pre *ngIf="editForm.controls['to'].hasError('city')">Städtename ist nicht erlaubt.
+{{ editForm.controls['to'].errors.city | json }}</pre>
+
+            <div class="form-group">
+                <label>Date:</label>
+                <input formControlName="date" class="form-control">
+            </div>
+
+            <button class="btn btn-default" (click)="save()">save</button>
+        </form>
+    </div>
+</div>

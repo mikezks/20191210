@@ -25,7 +25,8 @@
           class="btn btn-default toggle"
           (click)="showComponent = !showComponent">
           toggle component</button>
-        <app-flight-search *ngIf="showComponent"></app-flight-search>
+        <!-- <app-flight-search *ngIf="showComponent"></app-flight-search> -->
+        <app-flight-edit *ngIf="showComponent"></app-flight-edit>
 
       </div>
   </div>
